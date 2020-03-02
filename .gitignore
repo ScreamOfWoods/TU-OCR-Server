@@ -2,3 +2,7 @@
 *.png
 *.pyc
 *.jp?g
+bul.*
+output/
+train_data/
+fonts/
