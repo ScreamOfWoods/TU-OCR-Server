@@ -1,9 +1,8 @@
 #!/usr/bin/env python3
 
-from PIL import Image
-import pytesseract
 import argparse
 import sys
+import ocr
 
 language="eng"
 
@@ -14,13 +13,8 @@ args = argparser.parse_args()
 
 filename = args.image_path
 language = args.language
-img = None
 
 try:
-    img = Image.open(filename)
+    print(ocr.extract_text(filename, language))
 except:
-    sys.stderr.write("Cannot open file\n")
     sys.exit(1)
-
-text = pytesseract.image_to_string(img, lang=language)
-print(text)
